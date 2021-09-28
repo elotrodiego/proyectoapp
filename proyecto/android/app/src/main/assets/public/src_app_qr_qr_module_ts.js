@@ -107,12 +107,14 @@ let QrPage = class QrPage {
         this.qrScanner = qrScanner;
     }
     ngOnInit() {
+        this.scan();
     }
     scan() {
         this.qrScanner.prepare()
             .then((status) => {
             if (status.authorized) {
                 // camera permission was granted
+                console.log("camara con permiso");
                 // start scanning
                 let scanSub = this.qrScanner.scan().subscribe((text) => {
                     console.log('Scanned something', text);
@@ -121,11 +123,13 @@ let QrPage = class QrPage {
                 });
             }
             else if (status.denied) {
+                console.log("camara denegado");
                 // camera permission was permanently denied
                 // you must use QRScanner.openSettings() method to guide the user to the settings page
                 // then they can grant the permission from there
             }
             else {
+                console.log("else");
                 // permission was denied, but not permanently. You can ask for permission again at a later time.
             }
         })
@@ -173,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>qr</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n</ion-content>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>qr</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  \n</ion-content>\n");
 
 /***/ })
 
