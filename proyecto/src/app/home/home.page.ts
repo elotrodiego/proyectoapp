@@ -15,7 +15,7 @@ export class HomePage {
   ngAfterViewInit() {
     const animation = this.animationCtrl
     .create()
-    .addElement(document.querySelector('.square'))
+    .addElement(document.querySelector('.logo'))
     .duration(1200)
 
 
