@@ -25,3 +25,25 @@
 #container a {
   text-decoration: none;
 }
+
+#titulo h1 {
+  color: rgba(255, 255, 0, 0);
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 80px;
+}
+
+#boton {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+#test {
+  text-align: center;
+}
+
+.square {
+  background-image: url('https://i.imgur.com/8KqyjP5.png');
+  background-size: 95%;
+  background-repeat: no-repeat;
+}

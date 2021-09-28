@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { CameraPreview } from '@ionic-native/camera-preview/ngx'
+import { Component, AfterViewInit } from '@angular/core';
+import { AnimationController } from '@ionic/angular';
+import { createAnimation, Animation } from '@ionic/core';
 
 @Component({
   selector: 'app-home',
@@ -7,26 +8,21 @@ import { CameraPreview } from '@ionic-native/camera-preview/ngx'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  base64:string="data:image/png;base64,";
-
-  constructor(private preview:CameraPreview) {
+  constructor(private animationCtrl:AnimationController) {
 
   }
 
-  ngOnInit()
-  {
-    this.openCamera();
-  }
+  ngAfterViewInit() {
+    const animation = this.animationCtrl
+    .create()
+    .addElement(document.querySelector('.square'))
+    .duration(1200)
 
-  openCamera() {
-    this.preview.startCamera({}).then((val)=>{
-      alert(val);
-      this.preview.takePicture().then((base64)=>{
-        this.base64 = this.base64 + base64;
-        this.preview.stopCamera()
-      })
-    },(err)=>{
-      alert(JSON.stringify(err));
-    })
+
+
+    .fromTo('transform', 'translateX(-200px)', 'translateX(5px)')
+    .fromTo('opacity', '0.2', '1');
+
+    animation.play();
   }
 }

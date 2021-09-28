@@ -3,11 +3,13 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Log Isn</ion-title>
+    <ion-title>RegistrAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content id="titulo">
+  <h1 class="square">DUOC UC</h1>
+
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Email Institucional</ion-label>
@@ -19,10 +21,10 @@
       <ion-input type="password" required></ion-input>
     </ion-item>
 
-    <ion-row>
+    <ion-row >
       <ion-col>
-        <ion-button type="submit"  expand="block">Iniciar sesión</ion-button>
-        <a [routerLink]="['/forgot-password']" class="small-text">¿Olvidó su contraseña?</a>
+        <ion-button id="boton" type="submit"  expand="block">Iniciar sesión</ion-button>
+        <a id="test" [routerLink]="['/forgot-password']" class="small-text">¿Olvidó su contraseña?</a>
       </ion-col>
     </ion-row>
   </form>
