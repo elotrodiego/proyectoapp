@@ -10,6 +10,8 @@
 <ion-content id="titulo">
   <h1 class="logo">DUOC UC</h1>
 
+  <div class="centerdiv">
+
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Email Institucional</ion-label>
@@ -23,9 +25,11 @@
 
     <ion-row >
       <ion-col>
-        <ion-button id="boton" type="submit" [routerLink]="['/menu']" expand="block">Iniciar sesión</ion-button>
-        <a id="test" [routerLink]="['/forgot-password']" class="small-text">¿Olvidó su contraseña???</a>
+        <ion-button class="btn btn-primary" type="submit" [routerLink]="['/menu']" expand="block">Iniciar sesión</ion-button>
+        <a [routerLink]="['/forgot-password']" class="small-text"> <h5>¿Olvidó su contraseña?</h5> </a>
       </ion-col>
     </ion-row>
   </form>
+
+  </div>
 </ion-content>
