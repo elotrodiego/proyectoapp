@@ -5,23 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-  
-      <ion-tab-button tab="speakers">
-        <ion-icon name="person-circle"></ion-icon>
-        <ion-label>Speakers</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="map">
-        <ion-icon name="map"></ion-icon>
-        <ion-label>Map</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+  <h1>Bienvenido, @usuario</h1>
+
+  <ion-img [src]="image" *ngIf="image && !cameraActive"></ion-img>
+  <ion-button (click)="openCamera()" expand="full" *ngIf="!cameraActive">OPEN CAMERA</ion-button>
+
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

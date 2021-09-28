@@ -51,7 +51,15 @@ const routes = [
     },
     {
         path: 'qr',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_qr_qr_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./qr/qr.module */ 7915)).then(m => m.QrPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_capacitor-community_camera-preview_dist_esm_index_js"), __webpack_require__.e("src_app_qr_qr_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./qr/qr.module */ 7915)).then(m => m.QrPageModule)
+    },
+    {
+        path: 'menu',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-node_modules_capacitor-community_camera-preview_dist_esm_index_js"), __webpack_require__.e("src_app_menu_menu_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./menu/menu.module */ 2825)).then(m => m.MenuPageModule)
+    },
+    {
+        path: 'forgot-password',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_forgot-password_forgot-password_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./forgot-password/forgot-password.module */ 7157)).then(m => m.ForgotPasswordPageModule)
     },
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -464,7 +472,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>");
 
 /***/ })
 

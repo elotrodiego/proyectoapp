@@ -96,49 +96,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _raw_loader_qr_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./qr.page.html */ 3123);
 /* harmony import */ var _qr_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./qr.page.scss */ 1285);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/qr-scanner/ngx */ 7160);
+/* harmony import */ var _capacitor_community_camera_preview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @capacitor-community/camera-preview */ 4646);
 
 
 
 
 
 let QrPage = class QrPage {
-    constructor(qrScanner) {
-        this.qrScanner = qrScanner;
+    constructor() {
+        this.image = null;
+        this.cameraActive = false;
+        this.torchActive = false;
+    }
+    openCamera() {
+        const cameraPreviewOptions = {
+            position: 'rear',
+            parent: 'cameraPreview',
+            className: 'cameraPreview'
+        };
+        _capacitor_community_camera_preview__WEBPACK_IMPORTED_MODULE_2__.CameraPreview.start(cameraPreviewOptions);
+        this.cameraActive = true;
     }
     ngOnInit() {
-        this.scan();
-    }
-    scan() {
-        this.qrScanner.prepare()
-            .then((status) => {
-            if (status.authorized) {
-                // camera permission was granted
-                console.log("camara con permiso");
-                // start scanning
-                let scanSub = this.qrScanner.scan().subscribe((text) => {
-                    console.log('Scanned something', text);
-                    this.qrScanner.hide(); // hide camera preview
-                    scanSub.unsubscribe(); // stop scanning
-                });
-            }
-            else if (status.denied) {
-                console.log("camara denegado");
-                // camera permission was permanently denied
-                // you must use QRScanner.openSettings() method to guide the user to the settings page
-                // then they can grant the permission from there
-            }
-            else {
-                console.log("else");
-                // permission was denied, but not permanently. You can ask for permission again at a later time.
-            }
-        })
-            .catch((e) => console.log('Error is', e));
     }
 };
-QrPage.ctorParameters = () => [
-    { type: _ionic_native_qr_scanner_ngx__WEBPACK_IMPORTED_MODULE_2__.QRScanner }
-];
+QrPage.ctorParameters = () => [];
 QrPage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
         selector: 'app-qr',
@@ -177,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>qr</ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content>\n  \n</ion-content>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<ion-header>\n  <ion-toolbar>\n    <ion-title>qr</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-img [src]=\"image\" *ngIf=\"image && !cameraActive\"></ion-img>\n  <ion-button (click)=\"openCamera()\" expand=\"full\" *ngIf=\"!cameraActive\">OPEN CAMERA</ion-button>\n</ion-content>\n");
 
 /***/ })
 
