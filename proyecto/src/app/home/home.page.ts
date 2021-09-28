@@ -1,6 +1,9 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { AnimationController } from '@ionic/angular';
+import { AnimationController, NavController } from '@ionic/angular';
 import { createAnimation, Animation } from '@ionic/core';
+import { LoadingController } from '@ionic/angular';
+import { MenuPage } from '../menu/menu.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +11,9 @@ import { createAnimation, Animation } from '@ionic/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private animationCtrl:AnimationController) {
-
+  constructor(private animationCtrl:AnimationController,
+    public loadingController: LoadingController,
+    private router: Router) {
   }
 
   ngAfterViewInit() {
@@ -25,4 +29,18 @@ export class HomePage {
 
     animation.play();
   }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'loginClass',
+      message: 'Iniciando sesión...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const {role,data} = await loading.onDidDismiss();
+    this.router.navigateByUrl('/menu');
+  }
+
+
 }
