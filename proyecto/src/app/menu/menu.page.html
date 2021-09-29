@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content>
+  <!--Se muestra cuando la camara está inactiva-->
   <div *ngIf="!cameraActive">
     <h1>Bienvenido, @usuario</h1>
-
     <ion-fab horizontal="start" vertical="bottom" slot="fixed">
       <ion-fab-button color="dark">
         <ion-icon md="caret-up" ios="chevron-up-circle-outline"></ion-icon>
@@ -19,13 +19,13 @@
       </ion-fab-list>
     </ion-fab>
   </div>
-
+  
+  <!--Se muestra cuando la camara está activa-->
   <div id="cameraPreview" class="cameraPreview">
     <div *ngIf="cameraActive">
       <ion-button (click)="stopCamera()" expand="block" id="close">
         <ion-icon name="close-circle" slot="icon-only"></ion-icon>
-      </ion-button>
-      
+      </ion-button> 
     </div>
   </div>
 
