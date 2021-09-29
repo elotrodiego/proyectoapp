@@ -10,22 +10,31 @@ import { CameraPreview, CameraPreviewOptions, CameraPreviewPictureOptions } from
 })
 export class QrPage implements OnInit {
   image = null;
-  cameraActive = false;
+  cameraActive = true;
   torchActive = false;
 
   constructor() { }
 
-  openCamera() {
+  async openCamera() {
+    console.log("opencamera");
     const cameraPreviewOptions: CameraPreviewOptions = {
       position: 'rear',
       parent: 'cameraPreview',
       className: 'cameraPreview'
     };
     CameraPreview.start(cameraPreviewOptions);
-    this.cameraActive = true;
   }
 
   ngOnInit() {
     
+  }
+
+  ionViewDidEnter() {
+    const cameraPreviewOptions: CameraPreviewOptions = {
+      position: 'rear',
+      parent: 'cameraPreview',
+      className: 'cameraPreview'
+    };
+    CameraPreview.start(cameraPreviewOptions);
   }
 }

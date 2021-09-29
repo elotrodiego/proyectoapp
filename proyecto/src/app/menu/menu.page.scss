@@ -1,0 +1,14 @@
+.cameraPreview {
+    display: flex;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+}
+
+#close {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% + 115px);
+    width: 50px;
+    height: 50px;
+}

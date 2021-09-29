@@ -22,7 +22,12 @@ export class MenuPage implements OnInit {
       className: 'cameraPreview'
     };
     CameraPreview.start(cameraPreviewOptions);
-    this.cameraActive = true;
+    this.cameraActive = true; 
+  }
+
+  async stopCamera() {
+    await CameraPreview.stop();
+    this.cameraActive = false;
   }
 
   async presentToast() {

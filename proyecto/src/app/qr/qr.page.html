@@ -5,6 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-img [src]="image" *ngIf="image && !cameraActive"></ion-img>
-  <ion-button (click)="openCamera()" expand="full" *ngIf="!cameraActive">OPEN CAMERA</ion-button>
+  <div id="cameraPreview" class="cameraPreview">
+    <div *ngIf="cameraActive">
+      <img src="./assets/ionic-light.icon.png" class="image-overlay">
+
+      <ion-button (click)="stopCamera()" expand="block" id="close">
+        <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+      
+    </div>
+  </div>
+  <ion-img [src]="image" *ngIf="image && !cameraActive">a</ion-img>
+  
 </ion-content>
